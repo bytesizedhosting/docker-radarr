@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+umask 022
+
+PATH=/usr/bin:/usr/local/bin:$PATH
+
+echo "Starting Radarr"
+exec s6-setuidgid bytesized /usr/bin/mono /app/radarr/Radarr.exe -data=/config -nobrowser
+echo "Radarr shut down"
